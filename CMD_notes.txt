@@ -1,0 +1,620 @@
+willt@WillsGamingPC MINGW64 ~
+$ git --version
+git version 2.52.0.windows.1
+
+willt@WillsGamingPC MINGW64 ~
+$ git config --global core.editor
+
+willt@WillsGamingPC MINGW64 ~
+$ git config --global core.editor "notepad"
+
+willt@WillsGamingPC MINGW64 ~
+$ git config --global user.name "William"
+
+willt@WillsGamingPC MINGW64 ~
+$ git config --global user.email "wilhart@udel.edu"
+
+willt@WillsGamingPC MINGW64 ~
+$ mkdir MyProject1
+
+willt@WillsGamingPC MINGW64 ~
+$ cd MyProject1
+
+willt@WillsGamingPC MINGW64 ~/MyProject1
+$ git init
+Initialized empty Git repository in C:/Users/willt/MyProject1/.git/
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls -a
+./  ../  .git/
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls
+index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+        index.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+        index.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git add all
+fatal: pathspec 'all' did not match any files
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git add index.all
+fatal: pathspec 'index.all' did not match any files
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git add index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git add --all
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+        new file:   index.txt
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git restore --staged index.txt
+fatal: could not resolve HEAD
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git reset index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.txt
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git commit -m "First release of Hello World project"
+[master (root-commit) 489d14c] First release of Hello World project
+ 1 file changed, 8 insertions(+)
+ create mode 100644 index.html
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git commit -a -m "Quick update of Hello World project"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git add index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git commit
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/willt/MyProject1/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/willt/MyProject1/.git/COMMIT_EDITMSG to Unix format...
+[master 12368d1] This is a commit using only "git commit", which gives us longer commit comments
+ 1 file changed, 8 insertions(+)
+ create mode 100644 index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git log
+commit 12368d10a7ddf63c6f5d4c96de1b51b8d154d359 (HEAD -> master)
+Author: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:48:33 2026 -0500
+
+    This is a commit using only "git commit", which gives us longer commit comments
+
+commit 489d14ca66c0c1659f93513703cb7435867f9db3
+Author: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:39:30 2026 -0500
+
+    First release of Hello World project
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git log --stat
+commit 12368d10a7ddf63c6f5d4c96de1b51b8d154d359 (HEAD -> master)
+Author: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:48:33 2026 -0500
+
+    This is a commit using only "git commit", which gives us longer commit comments
+
+ index.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 489d14ca66c0c1659f93513703cb7435867f9db3
+Author: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:39:30 2026 -0500
+
+    First release of Hello World project
+
+ index.html | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag v1.0
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag -a v1.0 -m "Version 1.0 release"
+fatal: tag 'v1.0' already exists
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag -a v2.0 -m "Version 2.0 release"
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag
+v1.0
+v2.0
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git show tag v1.0
+fatal: ambiguous argument 'tag': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git show v1.0
+commit 12368d10a7ddf63c6f5d4c96de1b51b8d154d359 (HEAD -> master, tag: v2.0, tag: v1.0)
+Author: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:48:33 2026 -0500
+
+    This is a commit using only "git commit", which gives us longer commit comments
+
+diff --git a/index.txt b/index.txt
+new file mode 100644
+index 0000000..ac80506
+--- /dev/null
++++ b/index.txt
+@@ -0,0 +1,8 @@
++<!DOCTYPE html>
++<html>
++<body>
++
++<p>Hello World!</p>
++
++</body>
++</html>
+\ No newline at end of file
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git show v2.0
+tag v2.0
+Tagger: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:58:18 2026 -0500
+
+Version 2.0 release
+
+commit 12368d10a7ddf63c6f5d4c96de1b51b8d154d359 (HEAD -> master, tag: v2.0, tag: v1.0)
+Author: william <wilhart@udel.edu>
+Date:   Wed Jan 14 10:48:33 2026 -0500
+
+    This is a commit using only "git commit", which gives us longer commit comments
+
+diff --git a/index.txt b/index.txt
+new file mode 100644
+index 0000000..ac80506
+--- /dev/null
++++ b/index.txt
+@@ -0,0 +1,8 @@
++<!DOCTYPE html>
++<html>
++<body>
++
++<p>Hello World!</p>
++
++</body>
++</html>
+\ No newline at end of file
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was 12368d1)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git stash
+No local changes to save
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag hellp
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git tag -d hellp
+Deleted tag 'hellp' (was 12368d1)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ tag help
+bash: tag: command not found
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git help
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]
+           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]
+           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   restore    Restore working tree files
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   diff       Show changes between commits, commit and working tree, etc
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   backfill   Download missing objects in a partial clone
+   branch     List, create, or delete branches
+   commit     Record changes to the repository
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   reset      Reset current HEAD to the specified state
+   switch     Switch branches
+   tag        Create, list, delete or verify tags
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git help tag
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git help branch
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch MyProject1-images
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch MyProject1-will
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch list
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch
+  MyProject1-images
+  MyProject1-will
+  list
+* master
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch --delete list
+Deleted branch list (was 12368d1).
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch --move MyProject1-images
+fatal: a branch named 'MyProject1-images' already exists
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git branch -m MyProject1-images
+fatal: a branch named 'MyProject1-images' already exists
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git checkout MyProject1-images
+Switched to branch 'MyProject1-images'
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git branch
+* MyProject1-images
+  MyProject1-will
+  master
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ ls
+index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git status
+On branch MyProject1-images
+nothing to commit, working tree clean
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ ls
+index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ touch README
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ ls
+README  index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git status
+On branch MyProject1-images
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git status
+On branch MyProject1-images
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git add --add
+error: unknown option `add'
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --[no-]dry-run    dry run
+    -v, --[no-]verbose    be verbose
+
+    -i, --[no-]interactive
+                          interactive picking
+    -p, --[no-]patch      select hunks interactively
+    -U, --unified <n>     generate diffs with <n> lines context
+    --inter-hunk-context <n>
+                          show context between diff hunks up to the specified number of lines
+    -e, --[no-]edit       edit current diff and apply
+    -f, --[no-]force      allow adding otherwise ignored files
+    -u, --[no-]update     update tracked files
+    --[no-]renormalize    renormalize EOL of tracked files (implies -u)
+    -N, --[no-]intent-to-add
+                          record only the fact that the path will be added later
+    -A, --[no-]all        add changes from all tracked and untracked files
+    --[no-]ignore-removal ignore paths removed in the working tree (same as --no-all)
+    --[no-]refresh        don't add, only refresh the index
+    --[no-]ignore-errors  just skip files which cannot be added because of errors
+    --[no-]ignore-missing check if - even missing - files are ignored in dry run
+    --[no-]sparse         allow updating entries outside of the sparse-checkout cone
+    --[no-]chmod (+|-)x   override the executable bit of the listed files
+    --[no-]pathspec-from-file <file>
+                          read pathspec from file
+    --[no-]pathspec-file-nul
+                          with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git add --all
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git status
+On branch MyProject1-images
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README
+        modified:   index.html
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git add --all
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git status
+On branch MyProject1-images
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   README
+        modified:   index.html
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git commit -m "added README and image"
+[MyProject1-images 20c853d] added README and image
+ 2 files changed, 5 insertions(+)
+ create mode 100644 README
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git status
+On branch MyProject1-images
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git add --all
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git commit -m "some stuff"
+[MyProject1-images 3cde944] some stuff
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (MyProject1-images)
+$ git checkout master
+Switched to branch 'master'
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git merge master
+Already up to date.
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git merge MyProject1-images
+Updating 12368d1..3cde944
+Fast-forward
+ README     | 0
+ index.html | 5 +++++
+ 2 files changed, 5 insertions(+)
+ create mode 100644 README
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls
+README  index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ssh -T git@github.com:WillHart2002/MyProject1.git
+ssh: Could not resolve hostname github.com:WillHart2002/MyProject1.git: Name or service not known
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git clone https://github.com/WillHart2002/MyProject1.git
+Cloning into 'MyProject1'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        MyProject1/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git add --all
+warning: adding embedded git repository: MyProject1
+hint: You've added another git repository inside your current repository.
+hint: Clones of the outer repository will not contain the contents of
+hint: the embedded repository and will not know how to obtain it.
+hint: If you meant to add a submodule, use:
+hint:
+hint:   git submodule add <url> MyProject1
+hint:
+hint: If you added this path by mistake, you can remove it from the
+hint: index with:
+hint:
+hint:   git rm --cached MyProject1
+hint:
+hint: See "git help submodule" for more information.
+hint: Disable this message with "git config set advice.addEmbeddedRepo false"
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   MyProject1
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git restore --staged MyProject1
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls
+MyProject1/  README  index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls
+README  index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git remote add origin https://github.com/WillHart2002/MyProject1.git
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ ls
+README  index.html  index.txt
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+willt@WillsGamingPC MINGW64 ~/MyProject1 (master)
+$ git push -u origin master
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 20 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (12/12), 1.21 KiB | 620.00 KiB/s, done.
+Total 12 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/WillHart2002/MyProject1/pull/new/master
+remote:
+To https://github.com/WillHart2002/MyProject1.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
